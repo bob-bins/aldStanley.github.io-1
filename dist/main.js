@@ -17,7 +17,7 @@ camera.position.setZ(30);
 renderer.render(scene,camera);
 
 //Mypic rectangle
-const Mypic = new THREE.TextureLoader().load('pictures/Mypic.jpeg');
+const Mypic = new THREE.TextureLoader().load('pictures/IMG_6594.jpeg');
 const me = new THREE.Mesh(
     new THREE.PlaneGeometry(10,17),
     new THREE.MeshStandardMaterial({
@@ -143,21 +143,21 @@ function animate(){
   requestAnimationFrame(animate);
 
   //torus rotation
-  torus.rotation.x+=0.01;
+  torus.rotation.x+=0.005;
   
   //torus2.rotation.x-=0.01;
-  torus2.rotation.y +=0.01;
+  torus2.rotation.y +=0.005;
 
-  torus3.rotation.z += 0.01;
-  torus3.rotation.x += 0.01;
-  torus3.rotation.y += 0.01;
+  torus3.rotation.z += 0.005;
+  torus3.rotation.x += 0.005;
+  torus3.rotation.y += 0.005;
 
   //earth rotation
-  earth.rotation.x += 0.01;
+  earth.rotation.x += 0.005;
   earth.rotation.y += 0.005;
 
   //mars rotation
-  mars.rotation.x += 0.02;
+  mars.rotation.x += 0.01;
   mars.rotation.z += 0.005;
 
   //me rotation
