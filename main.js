@@ -45,7 +45,7 @@ const torus = new THREE.Mesh(geometry, material);
 const torus2 = new THREE.Mesh(geometry,material)
 const torus3 = new THREE.Mesh(geometry,material)
 
-scene.add(torus, torus2, torus3);
+//scene.add(torus, torus2, torus3);
 
 //moon
 const moonTexture = new THREE.TextureLoader().load('pictures/moon.jpeg');
