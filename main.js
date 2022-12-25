@@ -30,22 +30,6 @@ me.position.z = -25;
 me.position.x = 5;
 me.position.y = 3;
 
-//Name cube
-const nameTexture = new THREE.TextureLoader().load('pictures/Name.png');
-const nameCube = new THREE.Mesh(
-    new THREE.BoxGeometry(4,4,4),
-    new THREE.MeshBasicMaterial({map:nameTexture})
-);
-//scene.add(nameCube);
-
-//Torus
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial({ color: 0xff6347, wireframe:true });
-const torus = new THREE.Mesh(geometry, material);
-const torus2 = new THREE.Mesh(geometry,material)
-const torus3 = new THREE.Mesh(geometry,material)
-
-//scene.add(torus, torus2, torus3);
 
 //moon
 const moonTexture = new THREE.TextureLoader().load('pictures/moon.jpeg');
@@ -57,9 +41,9 @@ const moon = new THREE.Mesh(
       normalMap: moonNormal
     })
 );
-//scene.add(moon);
-//moon.position.z = 25;
-//moon.position.setX(-10);
+scene.add(moon);
+moon.position.z = 15;
+moon.position.x = 20;
 
 // //earth
 const earthTexture = new THREE.TextureLoader().load('pictures/earthTexture.jpeg');
@@ -109,7 +93,7 @@ function addStar(){
   const material = new THREE.MeshStandardMaterial({color:0xffffff})
   const star = new THREE.Mesh(geometry,material);
 
-  const [x,y,z] = Array(3).fill().map(()=>THREE.MathUtils.randFloatSpread(100));
+  const [x,y,z] = Array(3).fill().map(()=>THREE.MathUtils.randFloatSpread(90));
   star.position.set(x,y,z);
   scene.add(star);
 }
@@ -124,13 +108,6 @@ scene.background = spaceTexture;
 //scroll animation
 function moveCamera(){
   const t = document.body.getBoundingClientRect().top;
-  moon.rotation.x += 0.05;
-  moon.rotation.y += 0.075;
-  moon.rotation.z += 0.05;
-
-  nameCube.rotation.x += 0.005;
-  nameCube.rotation.y += 0.005;
-  //nameCube.rotation.z += 0.01;
   
   camera.position.z = t*-0.005;
   camera.position.x = t*-0.002;
@@ -143,16 +120,6 @@ moveCamera();
 function animate(){
   requestAnimationFrame(animate);
 
-  //torus rotation
-  torus.rotation.x+=0.005;
-  
-  //torus2.rotation.x-=0.01;
-  torus2.rotation.y +=0.005;
-
-  torus3.rotation.z += 0.005;
-  torus3.rotation.x += 0.005;
-  torus3.rotation.y += 0.005;
-
   //earth rotation
   earth.rotation.x += 0.005;
   earth.rotation.y += 0.005;
@@ -163,6 +130,9 @@ function animate(){
 
   //me rotation
   me.rotation.y += 0.02;
+
+  moon.rotation.x -= 0.005;
+  moon.rotation.y += 0.005;
 
   controls.update();
 
