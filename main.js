@@ -1,7 +1,10 @@
 import './style.css'
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';//import { isAbsolute } from 'path';
-//import { request } from 'http';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import earthBumpImg from "./pictures/earthBump.jpeg"
+import earthTextureImg from "./pictures/earthTexture.jpeg"
+import marsTextureImg from "./pictures/marsTexture.jpeg"
+import spaceBGImg from "./pictures/spaceBG.jpg"
 
 
 
@@ -46,8 +49,8 @@ moon.position.z = 15;
 moon.position.x = 20;
 
 // //earth
-const earthTexture = new THREE.TextureLoader().load('pictures/earthTexture.jpeg');
-const earthNormal = new THREE.CubeTextureLoader().load('pictures/earthBump.jpeg');
+const earthTexture = new THREE.TextureLoader().load(earthTextureImg);
+const earthNormal = new THREE.CubeTextureLoader().load(earthBumpImg);
 const earth = new THREE.Mesh(
     new THREE.SphereGeometry(3,32,32),
     new THREE.MeshStandardMaterial({
@@ -60,7 +63,7 @@ earth.position.z = 15;
 earth.position.x = -5;
 
 //mars
-const marsTexture = new THREE.TextureLoader().load('pictures/marsTexture.jpeg');
+const marsTexture = new THREE.TextureLoader().load(marsTextureImg);
 const marsNormal = new THREE.CubeTextureLoader().load('pictures/marsNormal.jpeg');
 const mars = new THREE.Mesh(
     new THREE.SphereGeometry(3,32,32),
@@ -100,7 +103,7 @@ function addStar(){
 Array(200).fill().forEach(addStar);
 
 //Space background
-const spaceTexture = new THREE.TextureLoader().load('pictures/spaceBG.jpg');
+const spaceTexture = new THREE.TextureLoader().load(spaceBGImg);
 scene.background = spaceTexture;
 
 
