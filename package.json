@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp -r pictures dist/assets/pictures",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
